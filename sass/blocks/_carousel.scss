@@ -1,0 +1,40 @@
+.slider{
+  padding:81px 0 ;
+  .slick-dots li button:before{
+    font-size: 30px;
+  }
+  &__inner{
+    position: relative;
+    img{
+        margin: 0 auto;
+    }
+    .slider-prev{
+      width: 31px;
+      height: 50px;
+      background:url(../icons/left.svg);     
+      border:none;
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+      left:-30px;
+    }
+    .slider-next{
+      width: 31px;
+      height: 50px;
+      background:url(../icons/right.svg);
+      border:none;
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+      right:-30px;
+    }
+  }
+}
+
+@media ( max-width: 991px ){
+  .slider{
+      .container{
+          width:80%;
+      }
+  }
+}

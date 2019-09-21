@@ -29,3 +29,15 @@
         margin-top: 10px;
     }
 }
+
+@media ( max-width: 768px ){
+    .feed__item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .feed__text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

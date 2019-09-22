@@ -3,12 +3,15 @@ $(document).ready(function(){
     $('.slider__inner').slick({
         prevArrow:'<button type="button" class="slider-prev"></button>',
         nextArrow:'<button type="button" class="slider-next"></button>',
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
         responsive: [
             {
               breakpoint: 1024,
               settings: {
                 arrows:false,
-                dots:true,
+                dots:true,                 
               }
             }
         ]
@@ -34,4 +37,48 @@ $(document).ready(function(){
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
 
+    //Modal
+
+    $('[data-modal=consultation]').on('click',function(){
+      $('.overlay,#consultation').fadeIn('slow');
+    });
+
+    $('.modal__close').on('click',function(){
+      $('.overlay,#consultation, #thanks, #order').fadeOut('slow');
+    });   
+
+
+
+    $('.button_mini').each(function(i){
+      $(this).on('click', function(){
+        $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+        $('.overlay, #order').fadeIn('slow');
+      });
+    });
+
+    function validateForms(form){
+      $(form).validate({
+        rules:{
+          name: "required",
+          phone:"required",
+          email:{
+            required:true,
+            email:true,
+          }
+        },
+        messages:{
+          name:"Пожалуйста введите имя",
+          phone:"Пожалуйста введите номер телефона",
+          email:{
+            required:"Пожалуйста введите email",
+            email:"Не правильно введен адрес email"
+          }
+        }
+      });
+    }
+    validateForms('#consultation form');
+    validateForms('#consultation-form');
+    validateForms('#order form');
+
+    $('input[name=phone]').mask('+7 (999) 999-9999');
 });

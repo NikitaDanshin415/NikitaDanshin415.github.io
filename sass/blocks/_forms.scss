@@ -16,10 +16,7 @@
             margin-bottom: 20px;
         }
     }
-}
-
-@media ( max-width: 375px ){
-    .feed-form{
-        width:80%;
+    &_mt25{
+        margin-top: 25px;
     }
 }
